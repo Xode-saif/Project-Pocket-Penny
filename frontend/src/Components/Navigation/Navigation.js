@@ -3,8 +3,22 @@ import styled from 'styled-components'
 import avatar from '../../img/avatar.png'
 import { signout } from '../../utils/Icons'
 import { menuItems } from '../../utils/menuItems'
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios'
+const BASE_URL = 'http://127.0.0.1:4000';
 
 function Navigation({active, setActive}) {
+    const navigate = useNavigate()
+    const handlelogout = async ()=>{
+        try {
+        const response = await axios.post(`/user/logout`,{}, { withCredentials: true }) //{}-->empty coz not sending any data
+          if(response.data.success){
+            navigate('/login');
+          }
+        } catch (error) {
+          console.log(error);
+        }
+    }
     return (
         <NavStyled>
             <div className="user-con">
@@ -27,9 +41,9 @@ function Navigation({active, setActive}) {
                 })}
             </ul>
             <div className="bottom-nav">
-                <li>
+                <button onClick={handlelogout}>
                     {signout} Sign Out
-                </li>
+                </button>
             </div>
         </NavStyled>
     )

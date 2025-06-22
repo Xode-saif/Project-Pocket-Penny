@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
 import axios from 'axios'
 
-const BASE_URL = "https://localhost:5000/api/v1/"
+// const BASE_URL = "http://localhost:4000/api/v1/"
 
 const GlobalContext = React.createContext()
 
@@ -11,9 +11,11 @@ export const GlobalProvider = ({children}) => {
     const [expenses, setExpenses] = useState([])
     const [error, setError] = useState(null)
 
+    
+
     // income
     const addIncome = async (income) => {
-        const response = await axios.post(`${BASE_URL}add-income`, income)
+        const response = await axios.post(`/api/v1/add-income`, income)
             .catch((err) =>{
                 setError(err.response.data.message)
             })
@@ -21,12 +23,12 @@ export const GlobalProvider = ({children}) => {
     }
 
     const getIncomes = async () => {
-        const response = await axios.get(`${BASE_URL}get-incomes`)
+        const response = await axios.get(`/api/v1/get-incomes`)
         setIncomes(response.data)
     }
 
     const deleteIncome = async (id) => {
-        await axios.delete(`${BASE_URL}delete-income/${id}`)
+        await axios.delete(`/api/v1/delete-income/${id}`)
         getIncomes()
     }
 
@@ -40,7 +42,7 @@ export const GlobalProvider = ({children}) => {
 
     // expense
     const addExpense = async (expense) => {
-        const response = await axios.post(`${BASE_URL}add-expense`, expense)
+        const response = await axios.post(`/api/v1/add-expense`, expense)
             .catch((err) =>{
                 setError(err.response.data.message)
             })
@@ -48,12 +50,12 @@ export const GlobalProvider = ({children}) => {
     }
 
     const getExpenses = async () => {
-        const response = await axios.get(`${BASE_URL}get-expenses`)
+        const response = await axios.get(`/api/v1/get-expenses`)
         setExpenses(response.data)
     }
 
     const deleteExpense = async (id) => {
-        await axios.delete(`${BASE_URL}delete-expense/${id}`)
+        await axios.delete(`/api/v1/delete-expense/${id}`)
         getExpenses()
     }
 
