@@ -35,6 +35,8 @@ const TransactionsStyled = styled.div`
     flex-direction: column;
     gap: 1rem;
     margin: 1rem;
+    width:60vw;
+    padding:1rem;
     
     .transactions-item {
         background: #FCF6F9;

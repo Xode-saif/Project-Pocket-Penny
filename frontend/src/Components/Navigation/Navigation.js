@@ -1,10 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 import avatar from '../../img/avatar.png'
-import { signout } from '../../utils/Icons'
+import {  signout } from '../../utils/Icons'
 import { menuItems } from '../../utils/menuItems'
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
+import Button from '../Button/Button'
 const BASE_URL = 'http://127.0.0.1:4000';
 
 function Navigation({active, setActive}) {
@@ -24,7 +25,7 @@ function Navigation({active, setActive}) {
             <div className="user-con">
                 <img src={avatar} alt="" />
                 <div className="text">
-                    <h2>Ambrish</h2>
+                    <h2>Saif</h2>
                     <p>Your Money</p>
                 </div>
             </div>
@@ -41,9 +42,18 @@ function Navigation({active, setActive}) {
                 })}
             </ul>
             <div className="bottom-nav">
-                <button onClick={handlelogout}>
+                {/* <button className='btn' onClick={handlelogout}>
                     {signout} Sign Out
-                </button>
+                </button> */}
+                <Button 
+                    onClick={handlelogout}
+                    icon = {signout}
+                    name={'Sign Out'}
+                    bPad={'0.8rem 1.6rem'}
+                    bRad={'30px'}
+                    bg={'var(--color-accent)'}
+                    color={'#fff'}
+                />
             </div>
         </NavStyled>
     )

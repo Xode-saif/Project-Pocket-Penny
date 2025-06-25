@@ -46,7 +46,6 @@ function App() {
         return <Orb />
     }, [])
     
-    console.log('isAuth', isAuth)
     if(isAuth){
         return (
             <AppStyled bg={bg} className="App">
@@ -61,11 +60,13 @@ function App() {
         )
     }
     return (
-        <main>
-            <h1>Please Login to continue</h1>
-            <div style={{display:'flex',flexDirection:'row'}}>
-                <p>Click on the Sign In button to proceed. </p>
-                <a href='/login'>Click here</a>
+        <main >
+            <div>
+                <h1>Please Login to continue</h1>
+                <div style={{display:'flex',flexDirection:'row'}}>
+                    <p>Click on the Sign In button to proceed. </p>
+                    <a href='/login'>Click here</a>
+                </div>
             </div>
         </main>
 

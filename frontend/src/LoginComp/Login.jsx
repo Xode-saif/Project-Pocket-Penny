@@ -43,9 +43,9 @@ function Login() {
       navigate('/');
     }
   return  (
-    <div className='container'>
+    <div className=''>
         <form className='form' onSubmit={handlesubmit}>
-            <p className='title'>WELCOME TO</p>
+            <p className='title'>WELCOME BACK</p>
                 <input placeholder='Email' className='input' type='email' value={email} onChange={(e)=>setEmail(e.target.value)}/>
                 <input placeholder='Password' className='input' type='password' value={password} onChange={(e)=>setPassword(e.target.value)}/>
             <button className='btn' type='submit'>Sign In</button>
